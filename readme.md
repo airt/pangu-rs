@@ -1,5 +1,8 @@
 # pangu
 
+[![Build Status][build-badge]][build-status]
+[![Crates Version][crates-badge]][crates-url]
+
 Paranoid text spacing for good readability, to automatically insert whitespace between CJK (Chinese, Japanese, Korean) and half-width characters (alphabetical letters, numerical digits and symbols).
 
 - [pangu.clj](https://github.com/coldnew/pangu.clj) (Clojure)
@@ -35,3 +38,8 @@ fn main() {
 ## license
 
 MIT
+
+[build-badge]: https://img.shields.io/travis/airt/pangu.rs.svg
+[build-status]: https://travis-ci.org/airt/pangu.rs
+[crates-badge]: https://img.shields.io/crates/v/pangu.svg
+[crates-url]: https://crates.io/crates/pangu
