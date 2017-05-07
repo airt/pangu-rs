@@ -1,0 +1,19 @@
+[package]
+name = "pangu"
+version = "0.0.1"
+authors = ["airt <airtial@gmail.com>"]
+license = "MIT"
+readme = "readme.md"
+repository = "https://github.com/airt/pangu.rs"
+documentation = "https://github.com/airt/pangu.rs"
+homepage = "https://github.com/airt/pangu.rs"
+categories = ["text-processing"]
+description = """
+Paranoid text spacing for good readability, to automatically insert
+whitespace between CJK (Chinese, Japanese, Korean) and half-width
+characters (alphabetical letters, numerical digits and symbols).
+"""
+
+[dependencies]
+lazy_static = "0.2"
+regex = "0.2"
