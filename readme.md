@@ -2,6 +2,7 @@
 
 [![Build Status][build-badge]][build-status]
 [![Crates Version][crates-badge]][crates-url]
+[![Rust Docs][docs-badge]][docs-url]
 
 Paranoid text spacing for good readability, to automatically insert whitespace between CJK (Chinese, Japanese, Korean) and half-width characters (alphabetical letters, numerical digits and symbols).
 
@@ -27,11 +28,14 @@ pangu = "0.0.1"
 
 example:
 
-```rs
+```rust
 extern crate pangu;
 
 fn main() {
-  assert_eq!(pangu::spacing("新八的構造成分有95%是眼鏡、3%是水、2%是垃圾"), "新八的構造成分有 95% 是眼鏡、3% 是水、2% 是垃圾");
+  assert_eq!(
+    pangu::spacing("新八的構造成分有95%是眼鏡、3%是水、2%是垃圾"),
+    "新八的構造成分有 95% 是眼鏡、3% 是水、2% 是垃圾"
+  );
 }
 ```
 
@@ -43,3 +47,5 @@ MIT
 [build-status]: https://travis-ci.org/airt/pangu.rs
 [crates-badge]: https://img.shields.io/crates/v/pangu.svg
 [crates-url]: https://crates.io/crates/pangu
+[docs-badge]: https://docs.rs/pangu/badge.svg
+[docs-url]: https://docs.rs/pangu

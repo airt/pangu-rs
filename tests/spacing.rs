@@ -1,3 +1,6 @@
+// <https://github.com/vinta/pangu/blob/master/pangu_test.go>
+// <https://github.com/vinta/pangu.js/blob/master/test/shared/test_core.js>
+
 extern crate pangu;
 
 #[test]
@@ -112,9 +115,6 @@ fn test_at() {
   assert_eq!(pangu::spacing("前面@陳上進 後面"), "前面 @陳上進 後面");
   assert_eq!(pangu::spacing("前面 @陳上進 後面"), "前面 @陳上進 後面");
   assert_eq!(pangu::spacing("前面 @陳上進tail"), "前面 @陳上進 tail");
-
-  // TODO
-  // assert_eq!(pangu::spacing("陳上進@地球"), "陳上進@地球");
 }
 
 #[test]
@@ -123,7 +123,6 @@ fn test_hash() {
   assert_eq!(pangu::spacing("前面#銀河便車指南 後面"), "前面 #銀河便車指南 後面");
   assert_eq!(pangu::spacing("前面#銀河便車指南tail"), "前面 #銀河便車指南 tail");
   assert_eq!(pangu::spacing("前面#銀河公車指南 #銀河拖吊車指南 後面"), "前面 #銀河公車指南 #銀河拖吊車指南 後面");
-
   assert_eq!(pangu::spacing("前面#H2G2#後面"), "前面 #H2G2# 後面");
   assert_eq!(pangu::spacing("前面#銀河閃電霹靂車指南#後面"), "前面 #銀河閃電霹靂車指南# 後面");
 }
@@ -132,18 +131,13 @@ fn test_hash() {
 fn test_dollar() {
   assert_eq!(pangu::spacing("前面$後面"), "前面 $ 後面");
   assert_eq!(pangu::spacing("前面 $ 後面"), "前面 $ 後面");
-
   assert_eq!(pangu::spacing("前面$100後面"), "前面 $100 後面");
-
-  // TODO
-  // assert_eq!(pangu::spacing("前面$一百塊 後面"), "前面 $一百塊 後面");
 }
 
 #[test]
 fn test_percent() {
   assert_eq!(pangu::spacing("前面%後面"), "前面 % 後面");
   assert_eq!(pangu::spacing("前面 % 後面"), "前面 % 後面");
-
   assert_eq!(pangu::spacing("前面100%後面"), "前面 100% 後面");
 }
 
@@ -157,11 +151,9 @@ fn test_carat() {
 fn test_ampersand() {
   assert_eq!(pangu::spacing("前面&後面"), "前面 & 後面");
   assert_eq!(pangu::spacing("前面 & 後面"), "前面 & 後面");
-
   assert_eq!(pangu::spacing("Vinta&Mollie"), "Vinta&Mollie");
   assert_eq!(pangu::spacing("Vinta&陳上進"), "Vinta & 陳上進");
   assert_eq!(pangu::spacing("陳上進&Vinta"), "陳上進 & Vinta");
-
   assert_eq!(pangu::spacing("得到一個A&B的結果"), "得到一個 A&B 的結果");
 }
 
@@ -169,22 +161,14 @@ fn test_ampersand() {
 fn test_asterisk() {
   assert_eq!(pangu::spacing("前面*後面"), "前面 * 後面");
   assert_eq!(pangu::spacing("前面 * 後面"), "前面 * 後面");
-
   assert_eq!(pangu::spacing("Vinta*Mollie"), "Vinta*Mollie");
   assert_eq!(pangu::spacing("Vinta*陳上進"), "Vinta * 陳上進");
   assert_eq!(pangu::spacing("陳上進*Vinta"), "陳上進 * Vinta");
-
   assert_eq!(pangu::spacing("得到一個A*B的結果"), "得到一個 A*B 的結果");
 }
 
 #[test]
 fn test_parenthesis() {
-  // assert_eq!(pangu::spacing("前面(後面"), "前面 ( 後面");
-  // assert_eq!(pangu::spacing("前面 ( 後面"), "前面 ( 後面");
-
-  // assert_eq!(pangu::spacing("前面)後面"), "前面 ) 後面");
-  // assert_eq!(pangu::spacing("前面 ) 後面"), "前面 ) 後面");
-
   assert_eq!(pangu::spacing("前面(中文123漢字)後面"), "前面 (中文 123 漢字) 後面");
   assert_eq!(pangu::spacing("前面(中文123)後面"), "前面 (中文 123) 後面");
   assert_eq!(pangu::spacing("前面(123漢字)後面"), "前面 (123 漢字) 後面");
@@ -197,11 +181,9 @@ fn test_parenthesis() {
 fn test_minus() {
   assert_eq!(pangu::spacing("前面-後面"), "前面 - 後面");
   assert_eq!(pangu::spacing("前面 - 後面"), "前面 - 後面");
-
   assert_eq!(pangu::spacing("Vinta-Mollie"), "Vinta-Mollie");
   assert_eq!(pangu::spacing("Vinta-陳上進"), "Vinta - 陳上進");
   assert_eq!(pangu::spacing("陳上進-Vinta"), "陳上進 - Vinta");
-
   assert_eq!(pangu::spacing("得到一個A-B的結果"), "得到一個 A-B 的結果");
 }
 
@@ -215,39 +197,25 @@ fn test_underscore() {
 fn test_plus() {
   assert_eq!(pangu::spacing("前面+後面"), "前面 + 後面");
   assert_eq!(pangu::spacing("前面 + 後面"), "前面 + 後面");
-
   assert_eq!(pangu::spacing("Vinta+Mollie"), "Vinta+Mollie");
   assert_eq!(pangu::spacing("Vinta+陳上進"), "Vinta + 陳上進");
   assert_eq!(pangu::spacing("陳上進+Vinta"), "陳上進 + Vinta");
-
   assert_eq!(pangu::spacing("得到一個A+B的結果"), "得到一個 A+B 的結果");
-
   assert_eq!(pangu::spacing("得到一個C++的結果"), "得到一個 C++ 的結果");
-
-  // TODO
-  // assert_eq!(pangu::spacing("得到一個A+的結果"), "得到一個 A+ 的結果");
 }
 
 #[test]
 fn test_equal() {
   assert_eq!(pangu::spacing("前面=後面"), "前面 = 後面");
   assert_eq!(pangu::spacing("前面 = 後面"), "前面 = 後面");
-
   assert_eq!(pangu::spacing("Vinta=Mollie"), "Vinta=Mollie");
   assert_eq!(pangu::spacing("Vinta=陳上進"), "Vinta = 陳上進");
   assert_eq!(pangu::spacing("陳上進=Vinta"), "陳上進 = Vinta");
-
   assert_eq!(pangu::spacing("得到一個A=B的結果"), "得到一個 A=B 的結果");
 }
 
 #[test]
 fn test_brace() {
-  // assert_eq!(pangu::spacing("前面{後面"), "前面 { 後面");
-  // assert_eq!(pangu::spacing("前面 { 後面"), "前面 { 後面");
-
-  // assert_eq!(pangu::spacing("前面}後面"), "前面 } 後面");
-  // assert_eq!(pangu::spacing("前面 } 後面"), "前面 } 後面");
-
   assert_eq!(pangu::spacing("前面{中文123漢字}後面"), "前面 {中文 123 漢字} 後面");
   assert_eq!(pangu::spacing("前面{中文123}後面"), "前面 {中文 123} 後面");
   assert_eq!(pangu::spacing("前面{123漢字}後面"), "前面 {123 漢字} 後面");
@@ -258,12 +226,6 @@ fn test_brace() {
 
 #[test]
 fn test_bracket() {
-  // assert_eq!(pangu::spacing("前面[後面"), "前面 [ 後面");
-  // assert_eq!(pangu::spacing("前面 [ 後面"), "前面 [ 後面");
-
-  // assert_eq!(pangu::spacing("前面]後面"), "前面 ] 後面");
-  // assert_eq!(pangu::spacing("前面 ] 後面"), "前面 ] 後面");
-
   assert_eq!(pangu::spacing("前面[中文123漢字]後面"), "前面 [中文 123 漢字] 後面");
   assert_eq!(pangu::spacing("前面[中文123]後面"), "前面 [中文 123] 後面");
   assert_eq!(pangu::spacing("前面[123漢字]後面"), "前面 [123 漢字] 後面");
@@ -276,11 +238,9 @@ fn test_bracket() {
 fn test_pipe() {
   assert_eq!(pangu::spacing("前面|後面"), "前面 | 後面");
   assert_eq!(pangu::spacing("前面 | 後面"), "前面 | 後面");
-
   assert_eq!(pangu::spacing("Vinta|Mollie"), "Vinta|Mollie");
   assert_eq!(pangu::spacing("Vinta|陳上進"), "Vinta | 陳上進");
   assert_eq!(pangu::spacing("陳上進|Vinta"), "陳上進 | Vinta");
-
   assert_eq!(pangu::spacing("得到一個A|B的結果"), "得到一個 A|B 的結果");
 }
 
@@ -305,10 +265,6 @@ fn test_semicolon() {
 
 #[test]
 fn test_quote() {
-  // assert_eq!(pangu::spacing("前面"後面"), "前面 " 後面");
-  // assert_eq!(pangu::spacing("前面""後面"), "前面 "" 後面");
-  // assert_eq!(pangu::spacing("前面" "後面"), "前面 " " 後面");
-
   assert_eq!(pangu::spacing("前面\"中文123漢字\"後面"), "前面 \"中文 123 漢字\" 後面");
   assert_eq!(pangu::spacing("前面\"中文123\"後面"), "前面 \"中文 123\" 後面");
   assert_eq!(pangu::spacing("前面\"123漢字\"後面"), "前面 \"123 漢字\" 後面");
@@ -322,17 +278,12 @@ fn test_quote() {
 
 #[test]
 fn test_single_quote() {
-  // assert_eq!(pangu::spacing("前面'後面"), "前面 ' 後面");
-  // assert_eq!(pangu::spacing("前面''後面"), "前面 '' 後面");
-  // assert_eq!(pangu::spacing("前面' '後面"), "前面 ' ' 後面");
-
   assert_eq!(pangu::spacing("前面'中文123漢字'後面"), "前面 '中文 123 漢字' 後面");
   assert_eq!(pangu::spacing("前面'中文123'後面"), "前面 '中文 123' 後面");
   assert_eq!(pangu::spacing("前面'123漢字'後面"), "前面 '123 漢字' 後面");
   assert_eq!(pangu::spacing("前面'中文123漢字' tail"), "前面 '中文 123 漢字' tail");
   assert_eq!(pangu::spacing("head '中文123漢字'後面"), "head '中文 123 漢字' 後面");
   assert_eq!(pangu::spacing("head '中文123漢字' tail"), "head '中文 123 漢字' tail");
-
   assert_eq!(pangu::spacing("陳上進 likes 林依諾's status."), "陳上進 likes 林依諾's status.");
 }
 
@@ -340,13 +291,10 @@ fn test_single_quote() {
 fn test_less_than() {
   assert_eq!(pangu::spacing("前面<後面"), "前面 < 後面");
   assert_eq!(pangu::spacing("前面 < 後面"), "前面 < 後面");
-
   assert_eq!(pangu::spacing("Vinta<Mollie"), "Vinta<Mollie");
   assert_eq!(pangu::spacing("Vinta<陳上進"), "Vinta < 陳上進");
   assert_eq!(pangu::spacing("陳上進<Vinta"), "陳上進 < Vinta");
-
   assert_eq!(pangu::spacing("得到一個A<B的結果"), "得到一個 A<B 的結果");
-
   assert_eq!(pangu::spacing("前面<中文123漢字>後面"), "前面 <中文 123 漢字> 後面");
   assert_eq!(pangu::spacing("前面<中文123>後面"), "前面 <中文 123> 後面");
   assert_eq!(pangu::spacing("前面<123漢字>後面"), "前面 <123 漢字> 後面");
@@ -366,11 +314,9 @@ fn test_comma() {
 fn test_greater_than() {
   assert_eq!(pangu::spacing("前面>後面"), "前面 > 後面");
   assert_eq!(pangu::spacing("前面 > 後面"), "前面 > 後面");
-
   assert_eq!(pangu::spacing("Vinta>Mollie"), "Vinta>Mollie");
   assert_eq!(pangu::spacing("Vinta>陳上進"), "Vinta > 陳上進");
   assert_eq!(pangu::spacing("陳上進>Vinta"), "陳上進 > Vinta");
-
   assert_eq!(pangu::spacing("得到一個A>B的結果"), "得到一個 A>B 的結果");
 }
 
@@ -380,9 +326,12 @@ fn test_period() {
   assert_eq!(pangu::spacing("前面 . 後面"), "前面 . 後面");
   assert_eq!(pangu::spacing("前面. 後面"), "前面. 後面");
 
-  // … is \u2026
+  // \u2026
   assert_eq!(pangu::spacing("前面…後面"), "前面… 後面");
   assert_eq!(pangu::spacing("前面……後面"), "前面…… 後面");
+
+  // \u2027
+  assert_eq!(pangu::spacing("前面‧後面"), "前面 ‧ 後面");
 }
 
 #[test]
@@ -396,13 +345,8 @@ fn test_question_mark() {
 fn test_slash() {
   assert_eq!(pangu::spacing("前面/後面"), "前面 / 後面");
   assert_eq!(pangu::spacing("前面 / 後面"), "前面 / 後面");
-
   assert_eq!(pangu::spacing("Vinta/Mollie"), "Vinta/Mollie");
   assert_eq!(pangu::spacing("Vinta/陳上進"), "Vinta / 陳上進");
   assert_eq!(pangu::spacing("陳上進/Vinta"), "陳上進 / Vinta");
-
   assert_eq!(pangu::spacing("得到一個A/B的結果"), "得到一個 A/B 的結果");
-
-  // TODO
-  // assert_eq!(pangu::spacing("陳上進/Vinta/Mollie"), "陳上進 / Vinta / Mollie");
 }

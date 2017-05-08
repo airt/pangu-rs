@@ -1,4 +1,6 @@
-/// pangu
+//! Paranoid text spacing for good readability, to automatically insert
+//! whitespace between CJK (Chinese, Japanese, Korean) and half-width
+//! characters (alphabetical letters, numerical digits and symbols).
 
 #[macro_use]
 extern crate lazy_static;
@@ -14,6 +16,7 @@ const CJK: &'static str = "\u{2e80}-\u{2eff}\u{2f00}-\u{2fdf}\u{3040}-\u{309f}\u
 // Alphabets, Numbers, Symbols (`~!@#$%^&*()-_=+[]{}\|;:'",<.>/?)
 const ANS: &'static str = "A-Za-z0-9`\\$%\\^&\\*\\-=\\+\\\\|/\u{00a1}-\u{00ff}\u{2022}\u{2027}\u{2150}-\u{218f}";
 
+/// Insert whitespace between CJK and half-width characters.
 pub fn spacing(s: &str) -> String {
   // https://github.com/rust-lang/regex#usage-avoid-compiling-the-same-regex-in-a-loop
   lazy_static! {
@@ -39,9 +42,9 @@ pub fn spacing(s: &str) -> String {
     static ref ANS_CJK: Regex = Regex::new(&format!("([{ANS}~!;:,\\.\\?\u{2026}])([{CJK}])", CJK = CJK, ANS = ANS)).unwrap();
   }
 
-  let mut text = s.to_string();
+  let mut text;
 
-  text = CJK_QUOTE.replace_all(&text, "$1 $2").into_owned();
+  text = CJK_QUOTE.replace_all(s, "$1 $2").into_owned();
   text = QUOTE_CJK.replace_all(&text, "$1 $2").into_owned();
   text = FIX_QUOTE.replace_all(&text, "$1$3$5").into_owned();
   text = FIX_SINGLE_QUOTE.replace_all(&text, "$1$3$4").into_owned();

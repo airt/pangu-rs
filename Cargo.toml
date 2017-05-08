@@ -7,7 +7,7 @@ readme = "readme.md"
 repository = "https://github.com/airt/pangu.rs"
 documentation = "https://github.com/airt/pangu.rs"
 homepage = "https://github.com/airt/pangu.rs"
-categories = ["text-processing"]
+categories = ["pangu", "text-spacing"]
 description = """
 Paranoid text spacing for good readability, to automatically insert
 whitespace between CJK (Chinese, Japanese, Korean) and half-width
