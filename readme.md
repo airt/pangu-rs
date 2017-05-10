@@ -23,7 +23,7 @@ add this to `Cargo.toml`:
 
 ```toml
 [dependencies]
-pangu = "0.0.1"
+pangu = "0.1"
 ```
 
 example:
