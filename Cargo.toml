@@ -4,9 +4,9 @@ version = "0.1.0"
 authors = ["airt <airtial@gmail.com>"]
 license = "MIT"
 readme = "readme.md"
-repository = "https://github.com/airt/pangu.rs"
-documentation = "https://github.com/airt/pangu.rs"
-homepage = "https://github.com/airt/pangu.rs"
+repository = "https://github.com/airt/pangu-rs"
+documentation = "https://github.com/airt/pangu-rs"
+homepage = "https://github.com/airt/pangu-rs"
 categories = ["text-processing"]
 description = """
 Paranoid text spacing for good readability, to automatically insert

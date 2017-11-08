@@ -43,8 +43,8 @@ fn main() {
 
 MIT
 
-[build-badge]: https://img.shields.io/travis/airt/pangu.rs.svg
-[build-status]: https://travis-ci.org/airt/pangu.rs
+[build-badge]: https://img.shields.io/travis/airt/pangu-rs.svg
+[build-status]: https://travis-ci.org/airt/pangu-rs
 [crates-badge]: https://img.shields.io/crates/v/pangu.svg
 [crates-url]: https://crates.io/crates/pangu
 [docs-badge]: https://docs.rs/pangu/badge.svg
