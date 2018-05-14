@@ -17,16 +17,16 @@ Paranoid text spacing for good readability, to automatically insert whitespace b
 - [pangu.rb](https://github.com/dlackty/pangu.rb) (Ruby)
 - [pangu.swift](https://github.com/X140Yu/pangu.Swift) (Swift)
 
-## usage
+## Usage
 
-add this to `Cargo.toml`:
+Add to `Cargo.toml`:
 
 ```toml
 [dependencies]
 pangu = "0.1"
 ```
 
-example:
+Example:
 
 ```rust
 extern crate pangu;
@@ -39,9 +39,14 @@ fn main() {
 }
 ```
 
-## license
+## License
 
-MIT
+Licensed under either of
+
+- Apache License Version 2.0 ([LICENSE-APACHE](license-apache) or <https://www.apache.org/licenses/LICENSE-2.0>)
+- MIT License ([LICENSE-MIT](license-mit) or <https://opensource.org/licenses/MIT>)
+
+at your option.
 
 [build-badge]: https://img.shields.io/travis/airt/pangu-rs.svg
 [build-status]: https://travis-ci.org/airt/pangu-rs

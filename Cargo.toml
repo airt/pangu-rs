@@ -2,7 +2,7 @@
 name = "pangu"
 version = "0.1.0"
 authors = ["airt <airtial@gmail.com>"]
-license = "MIT"
+license = "MIT/Apache-2.0"
 readme = "readme.md"
 repository = "https://github.com/airt/pangu-rs"
 documentation = "https://github.com/airt/pangu-rs"
