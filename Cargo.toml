@@ -4,10 +4,10 @@ version = "0.1.0"
 authors = ["airt <airtial@gmail.com>"]
 license = "MIT/Apache-2.0"
 readme = "readme.md"
+documentation = "https://docs.rs/pangu"
 repository = "https://github.com/airt/pangu-rs"
-documentation = "https://github.com/airt/pangu-rs"
-homepage = "https://github.com/airt/pangu-rs"
 categories = ["text-processing"]
+keywords = ["pangu", "spacing"]
 description = """
 Paranoid text spacing for good readability, to automatically insert
 whitespace between CJK (Chinese, Japanese, Korean) and half-width
@@ -15,5 +15,5 @@ characters (alphabetical letters, numerical digits and symbols).
 """
 
 [dependencies]
-lazy_static = "0.2"
-regex = "0.2"
+lazy_static = "1"
+regex = "1"
