@@ -12,13 +12,13 @@ use std::borrow::Cow;
 
 // Chinese, Japanese, Korean
 // see http://unicode-table.com
-const CJK: &'static str = "\u{2e80}-\u{2eff}\u{2f00}-\u{2fdf}\u{3040}-\u{309f}\u{30a0}-\u{30ff}\u{3100}-\u{312f}\u{3200}-\u{32ff}\u{3400}-\u{4dbf}\u{4e00}-\u{9fff}\u{f900}-\u{faff}";
+const CJK: &str = "\u{2e80}-\u{2eff}\u{2f00}-\u{2fdf}\u{3040}-\u{309f}\u{30a0}-\u{30ff}\u{3100}-\u{312f}\u{3200}-\u{32ff}\u{3400}-\u{4dbf}\u{4e00}-\u{9fff}\u{f900}-\u{faff}";
 
 // Alphabets, Numbers, Symbols
-const ANS: &'static str = "A-Za-z0-9`\\$%\\^&\\*\\-=\\+\\\\|/\u{00a1}-\u{00ff}\u{2022}\u{2027}\u{2150}-\u{218f}";
+const ANS: &str = "A-Za-z0-9`\\$%\\^&\\*\\-=\\+\\\\|/\u{00a1}-\u{00ff}\u{2022}\u{2027}\u{2150}-\u{218f}";
 
 /// Insert whitespace between CJK and half-width characters.
-pub fn spacing<'a>(text: &'a str) -> Cow<'a, str> {
+pub fn spacing(text: &str) -> Cow<str> {
   lazy_static! {
     static ref CJK_QUOTE: Regex =
       Regex::new(&format!("([{CJK}])([\"'])", CJK = CJK)).unwrap();
