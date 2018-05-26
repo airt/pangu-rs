@@ -84,12 +84,10 @@ pub fn spacing(text: &str) -> Cow<str> {
   let text_14 = CJK_ANS.replace_all(&text_13, "$1 $2");
   let text_15 = ANS_CJK.replace_all(&text_14, "$1 $2");
 
+  let eq = |x: &str, y: &str| x.as_ptr() == y.as_ptr() && x.len() == y.len();
+
   match text_15 {
-    Cow::Borrowed(borrowed) if borrowed == text => {
-      Cow::Borrowed(text)
-    },
-    spaced => {
-      Cow::Owned(spaced.into_owned())
-    },
+    Cow::Borrowed(t) if eq(t, text) => Cow::Borrowed(text),
+    spaced => Cow::Owned(spaced.into_owned()),
   }
 }
