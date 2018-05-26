@@ -4,7 +4,7 @@
 extern crate pangu;
 
 #[test]
-fn test_spacing_text() {
+fn text() {
   assert_eq!(pangu::spacing("新八的構造成分有95%是眼鏡、3%是水、2%是垃圾"), "新八的構造成分有 95% 是眼鏡、3% 是水、2% 是垃圾");
   assert_eq!(pangu::spacing("所以,請問Jackey的鼻子有幾個?3.14個!"), "所以, 請問 Jackey 的鼻子有幾個? 3.14 個!");
   assert_eq!(pangu::spacing("JUST WE就是JUST WE，既不偉大也不卑微！"), "JUST WE 就是 JUST WE，既不偉大也不卑微！");
@@ -13,104 +13,103 @@ fn test_spacing_text() {
 }
 
 #[test]
-fn test_latin1_supplement() {
+fn latin1_supplement() {
   assert_eq!(pangu::spacing("中文Ø漢字"), "中文 Ø 漢字");
   assert_eq!(pangu::spacing("中文 Ø 漢字"), "中文 Ø 漢字");
 }
 
 #[test]
-fn test_general_punctuation() {
+fn general_punctuation() {
   assert_eq!(pangu::spacing("中文•漢字"), "中文 • 漢字");
   assert_eq!(pangu::spacing("中文 • 漢字"), "中文 • 漢字");
 }
 
 #[test]
-fn test_number_forms() {
+fn number_forms() {
   assert_eq!(pangu::spacing("中文Ⅶ漢字"), "中文 Ⅶ 漢字");
   assert_eq!(pangu::spacing("中文 Ⅶ 漢字"), "中文 Ⅶ 漢字");
 }
 
 #[test]
-fn test_cjk_radicals_supplement() {
+fn cjk_radicals_supplement() {
   assert_eq!(pangu::spacing("abc⻤123"), "abc ⻤ 123");
   assert_eq!(pangu::spacing("abc ⻤ 123"), "abc ⻤ 123");
 }
 
 #[test]
-fn test_kangxi_radicals() {
+fn kangxi_radicals() {
   assert_eq!(pangu::spacing("abc⾗123"), "abc ⾗ 123");
   assert_eq!(pangu::spacing("abc ⾗ 123"), "abc ⾗ 123");
 }
 
 #[test]
-fn test_hiragana() {
+fn hiragana() {
   assert_eq!(pangu::spacing("abcあ123"), "abc あ 123");
   assert_eq!(pangu::spacing("abc あ 123"), "abc あ 123");
 }
 
 #[test]
-fn test_katakana() {
+fn katakana() {
   assert_eq!(pangu::spacing("abcア123"), "abc ア 123");
   assert_eq!(pangu::spacing("abc ア 123"), "abc ア 123");
 }
 
 #[test]
-fn test_bopomofo() {
+fn bopomofo() {
   assert_eq!(pangu::spacing("abcㄅ123"), "abc ㄅ 123");
   assert_eq!(pangu::spacing("abc ㄅ 123"), "abc ㄅ 123");
 }
 
 #[test]
-fn test_enclosed_cjk_letters_and_months() {
+fn enclosed_cjk_letters_and_months() {
   assert_eq!(pangu::spacing("abc㈱123"), "abc ㈱ 123");
   assert_eq!(pangu::spacing("abc ㈱ 123"), "abc ㈱ 123");
 }
 
 #[test]
-fn test_cjk_unified_ideographs_extension_a() {
+fn cjk_unified_ideographs_extension_a() {
   assert_eq!(pangu::spacing("abc㐂123"), "abc 㐂 123");
   assert_eq!(pangu::spacing("abc 㐂 123"), "abc 㐂 123");
 }
 
 #[test]
-fn test_cjk_unified_ideographs() {
+fn cjk_unified_ideographs() {
   assert_eq!(pangu::spacing("abc丁123"), "abc 丁 123");
   assert_eq!(pangu::spacing("abc 丁 123"), "abc 丁 123");
 }
 
 #[test]
-fn test_cjk_compatibility_ideographs() {
+fn cjk_compatibility_ideographs() {
   assert_eq!(pangu::spacing("abc車123"), "abc 車 123");
   assert_eq!(pangu::spacing("abc 車 123"), "abc 車 123");
 }
 
 #[test]
-fn test_tilde() {
+fn tilde() {
   assert_eq!(pangu::spacing("前面~後面"), "前面~ 後面");
   assert_eq!(pangu::spacing("前面 ~ 後面"), "前面 ~ 後面");
   assert_eq!(pangu::spacing("前面~ 後面"), "前面~ 後面");
 }
 
 #[test]
-fn test_back_quote() {
+fn back_quote() {
   assert_eq!(pangu::spacing("前面`後面"), "前面 ` 後面");
   assert_eq!(pangu::spacing("前面 ` 後面"), "前面 ` 後面");
   assert_eq!(pangu::spacing("前面` 後面"), "前面 ` 後面");
 }
 
 #[test]
-fn test_exclamation_mark() {
+fn exclamation_mark() {
   assert_eq!(pangu::spacing("前面!後面"), "前面! 後面");
   assert_eq!(pangu::spacing("前面 ! 後面"), "前面 ! 後面");
   assert_eq!(pangu::spacing("前面! 後面"), "前面! 後面");
 }
 
 #[test]
-fn test_at() {
+fn at() {
   // https://twitter.com/vinta
   assert_eq!(pangu::spacing("前面@vinta後面"), "前面 @vinta 後面");
   assert_eq!(pangu::spacing("前面 @vinta 後面"), "前面 @vinta 後面");
-
   // http://weibo.com/vintalines
   assert_eq!(pangu::spacing("前面@陳上進 後面"), "前面 @陳上進 後面");
   assert_eq!(pangu::spacing("前面 @陳上進 後面"), "前面 @陳上進 後面");
@@ -118,7 +117,7 @@ fn test_at() {
 }
 
 #[test]
-fn test_hash() {
+fn hash() {
   assert_eq!(pangu::spacing("前面#H2G2後面"), "前面 #H2G2 後面");
   assert_eq!(pangu::spacing("前面#銀河便車指南 後面"), "前面 #銀河便車指南 後面");
   assert_eq!(pangu::spacing("前面#銀河便車指南tail"), "前面 #銀河便車指南 tail");
@@ -128,27 +127,27 @@ fn test_hash() {
 }
 
 #[test]
-fn test_dollar() {
+fn dollar() {
   assert_eq!(pangu::spacing("前面$後面"), "前面 $ 後面");
   assert_eq!(pangu::spacing("前面 $ 後面"), "前面 $ 後面");
   assert_eq!(pangu::spacing("前面$100後面"), "前面 $100 後面");
 }
 
 #[test]
-fn test_percent() {
+fn percent() {
   assert_eq!(pangu::spacing("前面%後面"), "前面 % 後面");
   assert_eq!(pangu::spacing("前面 % 後面"), "前面 % 後面");
   assert_eq!(pangu::spacing("前面100%後面"), "前面 100% 後面");
 }
 
 #[test]
-fn test_carat() {
+fn carat() {
   assert_eq!(pangu::spacing("前面^後面"), "前面 ^ 後面");
   assert_eq!(pangu::spacing("前面 ^ 後面"), "前面 ^ 後面");
 }
 
 #[test]
-fn test_ampersand() {
+fn ampersand() {
   assert_eq!(pangu::spacing("前面&後面"), "前面 & 後面");
   assert_eq!(pangu::spacing("前面 & 後面"), "前面 & 後面");
   assert_eq!(pangu::spacing("Vinta&Mollie"), "Vinta&Mollie");
@@ -158,7 +157,7 @@ fn test_ampersand() {
 }
 
 #[test]
-fn test_asterisk() {
+fn asterisk() {
   assert_eq!(pangu::spacing("前面*後面"), "前面 * 後面");
   assert_eq!(pangu::spacing("前面 * 後面"), "前面 * 後面");
   assert_eq!(pangu::spacing("Vinta*Mollie"), "Vinta*Mollie");
@@ -168,7 +167,7 @@ fn test_asterisk() {
 }
 
 #[test]
-fn test_parenthesis() {
+fn parenthesis() {
   assert_eq!(pangu::spacing("前面(中文123漢字)後面"), "前面 (中文 123 漢字) 後面");
   assert_eq!(pangu::spacing("前面(中文123)後面"), "前面 (中文 123) 後面");
   assert_eq!(pangu::spacing("前面(123漢字)後面"), "前面 (123 漢字) 後面");
@@ -178,7 +177,7 @@ fn test_parenthesis() {
 }
 
 #[test]
-fn test_minus() {
+fn minus() {
   assert_eq!(pangu::spacing("前面-後面"), "前面 - 後面");
   assert_eq!(pangu::spacing("前面 - 後面"), "前面 - 後面");
   assert_eq!(pangu::spacing("Vinta-Mollie"), "Vinta-Mollie");
@@ -188,13 +187,13 @@ fn test_minus() {
 }
 
 #[test]
-fn test_underscore() {
+fn underscore() {
   assert_eq!(pangu::spacing("前面_後面"), "前面_後面");
   assert_eq!(pangu::spacing("前面 _ 後面"), "前面 _ 後面");
 }
 
 #[test]
-fn test_plus() {
+fn plus() {
   assert_eq!(pangu::spacing("前面+後面"), "前面 + 後面");
   assert_eq!(pangu::spacing("前面 + 後面"), "前面 + 後面");
   assert_eq!(pangu::spacing("Vinta+Mollie"), "Vinta+Mollie");
@@ -205,7 +204,7 @@ fn test_plus() {
 }
 
 #[test]
-fn test_equal() {
+fn equal() {
   assert_eq!(pangu::spacing("前面=後面"), "前面 = 後面");
   assert_eq!(pangu::spacing("前面 = 後面"), "前面 = 後面");
   assert_eq!(pangu::spacing("Vinta=Mollie"), "Vinta=Mollie");
@@ -215,7 +214,7 @@ fn test_equal() {
 }
 
 #[test]
-fn test_brace() {
+fn brace() {
   assert_eq!(pangu::spacing("前面{中文123漢字}後面"), "前面 {中文 123 漢字} 後面");
   assert_eq!(pangu::spacing("前面{中文123}後面"), "前面 {中文 123} 後面");
   assert_eq!(pangu::spacing("前面{123漢字}後面"), "前面 {123 漢字} 後面");
@@ -225,7 +224,7 @@ fn test_brace() {
 }
 
 #[test]
-fn test_bracket() {
+fn bracket() {
   assert_eq!(pangu::spacing("前面[中文123漢字]後面"), "前面 [中文 123 漢字] 後面");
   assert_eq!(pangu::spacing("前面[中文123]後面"), "前面 [中文 123] 後面");
   assert_eq!(pangu::spacing("前面[123漢字]後面"), "前面 [123 漢字] 後面");
@@ -235,7 +234,7 @@ fn test_bracket() {
 }
 
 #[test]
-fn test_pipe() {
+fn pipe() {
   assert_eq!(pangu::spacing("前面|後面"), "前面 | 後面");
   assert_eq!(pangu::spacing("前面 | 後面"), "前面 | 後面");
   assert_eq!(pangu::spacing("Vinta|Mollie"), "Vinta|Mollie");
@@ -245,39 +244,38 @@ fn test_pipe() {
 }
 
 #[test]
-fn test_backslash() {
+fn backslash() {
   assert_eq!(pangu::spacing(r"前面\後面"), r"前面 \ 後面");
 }
 
 #[test]
-fn test_colon() {
+fn colon() {
   assert_eq!(pangu::spacing("前面:後面"), "前面: 後面");
   assert_eq!(pangu::spacing("前面 : 後面"), "前面 : 後面");
   assert_eq!(pangu::spacing("前面: 後面"), "前面: 後面");
 }
 
 #[test]
-fn test_semicolon() {
+fn semicolon() {
   assert_eq!(pangu::spacing("前面;後面"), "前面; 後面");
   assert_eq!(pangu::spacing("前面 ; 後面"), "前面 ; 後面");
   assert_eq!(pangu::spacing("前面; 後面"), "前面; 後面");
 }
 
 #[test]
-fn test_quote() {
+fn quote() {
   assert_eq!(pangu::spacing("前面\"中文123漢字\"後面"), "前面 \"中文 123 漢字\" 後面");
   assert_eq!(pangu::spacing("前面\"中文123\"後面"), "前面 \"中文 123\" 後面");
   assert_eq!(pangu::spacing("前面\"123漢字\"後面"), "前面 \"123 漢字\" 後面");
   assert_eq!(pangu::spacing("前面\"中文123漢字\" tail"), "前面 \"中文 123 漢字\" tail");
   assert_eq!(pangu::spacing("head \"中文123漢字\"後面"), "head \"中文 123 漢字\" 後面");
   assert_eq!(pangu::spacing("head \"中文123漢字\" tail"), "head \"中文 123 漢字\" tail");
-
   // \u201c and \u201d
   assert_eq!(pangu::spacing("前面“中文123漢字”後面"), "前面 “中文 123 漢字” 後面");
 }
 
 #[test]
-fn test_single_quote() {
+fn single_quote() {
   assert_eq!(pangu::spacing("前面'中文123漢字'後面"), "前面 '中文 123 漢字' 後面");
   assert_eq!(pangu::spacing("前面'中文123'後面"), "前面 '中文 123' 後面");
   assert_eq!(pangu::spacing("前面'123漢字'後面"), "前面 '123 漢字' 後面");
@@ -288,7 +286,7 @@ fn test_single_quote() {
 }
 
 #[test]
-fn test_less_than() {
+fn less_than() {
   assert_eq!(pangu::spacing("前面<後面"), "前面 < 後面");
   assert_eq!(pangu::spacing("前面 < 後面"), "前面 < 後面");
   assert_eq!(pangu::spacing("Vinta<Mollie"), "Vinta<Mollie");
@@ -304,14 +302,14 @@ fn test_less_than() {
 }
 
 #[test]
-fn test_comma() {
+fn comma() {
   assert_eq!(pangu::spacing("前面,後面"), "前面, 後面");
   assert_eq!(pangu::spacing("前面 , 後面"), "前面 , 後面");
   assert_eq!(pangu::spacing("前面, 後面"), "前面, 後面");
 }
 
 #[test]
-fn test_greater_than() {
+fn greater_than() {
   assert_eq!(pangu::spacing("前面>後面"), "前面 > 後面");
   assert_eq!(pangu::spacing("前面 > 後面"), "前面 > 後面");
   assert_eq!(pangu::spacing("Vinta>Mollie"), "Vinta>Mollie");
@@ -321,28 +319,26 @@ fn test_greater_than() {
 }
 
 #[test]
-fn test_period() {
+fn period() {
   assert_eq!(pangu::spacing("前面.後面"), "前面. 後面");
   assert_eq!(pangu::spacing("前面 . 後面"), "前面 . 後面");
   assert_eq!(pangu::spacing("前面. 後面"), "前面. 後面");
-
   // \u2026
   assert_eq!(pangu::spacing("前面…後面"), "前面… 後面");
   assert_eq!(pangu::spacing("前面……後面"), "前面…… 後面");
-
   // \u2027
   assert_eq!(pangu::spacing("前面‧後面"), "前面 ‧ 後面");
 }
 
 #[test]
-fn test_question_mark() {
+fn question_mark() {
   assert_eq!(pangu::spacing("前面?後面"), "前面? 後面");
   assert_eq!(pangu::spacing("前面 ? 後面"), "前面 ? 後面");
   assert_eq!(pangu::spacing("前面? 後面"), "前面? 後面");
 }
 
 #[test]
-fn test_slash() {
+fn slash() {
   assert_eq!(pangu::spacing("前面/後面"), "前面 / 後面");
   assert_eq!(pangu::spacing("前面 / 後面"), "前面 / 後面");
   assert_eq!(pangu::spacing("Vinta/Mollie"), "Vinta/Mollie");
