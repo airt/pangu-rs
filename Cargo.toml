@@ -1,7 +1,8 @@
 [package]
 name = "pangu"
 version = "0.3.0"
-authors = ["airt <airtial@gmail.com>"]
+edition = "2024"
+authors = ["airt <airtial@gmail.com>", "shenjackyuanjie <3695888@qq.com>"]
 license = "MIT/Apache-2.0"
 readme = "readme.md"
 documentation = "https://docs.rs/pangu"
@@ -13,7 +14,6 @@ Paranoid text spacing for good readability, to automatically insert
 whitespace between CJK (Chinese, Japanese, Korean) and half-width
 characters (alphabetical letters, numerical digits and symbols).
 """
-edition = "2024"
 
 [dependencies]
 regex = "1"
