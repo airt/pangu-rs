@@ -22,14 +22,12 @@ Add to `Cargo.toml`:
 
 ```toml
 [dependencies]
-pangu = "0.2"
+pangu = "0.3"
 ```
 
 Example:
 
 ```rust
-extern crate pangu;
-
 fn main() {
   assert_eq!(
     pangu::spacing("新八的構造成分有95%是眼鏡、3%是水、2%是垃圾"),
