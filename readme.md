@@ -1,6 +1,5 @@
 # pangu
 
-[![Build Status][build-badge]][build-status]
 [![Crates Version][crates-badge]][crates-url]
 [![Rust Docs][docs-badge]][docs-url]
 
@@ -48,8 +47,6 @@ Licensed under either of
 
 at your option.
 
-[build-badge]: https://img.shields.io/travis/airt/pangu-rs.svg
-[build-status]: https://travis-ci.org/airt/pangu-rs
 [crates-badge]: https://img.shields.io/crates/v/pangu.svg
 [crates-url]: https://crates.io/crates/pangu
 [docs-badge]: https://docs.rs/pangu/badge.svg
