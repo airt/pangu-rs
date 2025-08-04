@@ -38,8 +38,8 @@ fn main() {
 
 ## Authors
 
-- airt <airtial@gmail.com>
-- shenjackyuanjie <3695888@qq.com>
+- @airt
+- @shenjackyuanjie
 
 ## License
 
